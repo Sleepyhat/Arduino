@@ -13,7 +13,7 @@ DallasTemperature sensors(&oneWire);
 void setup(void)
 {
   // start serial port
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Dallas Temperature IC Control Library Demo");
 
   // Start up the library
@@ -29,5 +29,11 @@ void loop(void)
   Serial.println("DONE");
   
   Serial.print("Temperature for the device 1 (index 0) is: ");
-  Serial.println(sensors.getTempCByIndex(0));  
+  //Serial.println(sensors.getTempCByIndex(0));  
+  int F = sensors.getTempFByIndex(0);
+ // int F1 = (9/5)*C;
+ // int F = F1 + 32;
+  Serial.print("The temperature is: ");
+  Serial.println(F);
+  delay(8000);
 }
